@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>CluedIn.Connector.OneLake provides the ability to post data to OneLake</Description>
+    <AssemblyName>CluedIn.Connector.OneLake</AssemblyName>
+    <RootNamespace>CluedIn.Connector.OneLake</RootNamespace>
+    <IsCluedInServerComponent>true</IsCluedInServerComponent>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\onelake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Files.DataLake" />
+    <PackageReference Include="CluedIn.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\onelake.png" />
+  </ItemGroup>
+</Project>

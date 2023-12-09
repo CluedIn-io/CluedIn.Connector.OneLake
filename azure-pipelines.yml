@@ -1,0 +1,58 @@
+name: $(Date:yyyyMMdd)$(Rev:.r)
+parameters:
+  - name: runIngegrationTests
+    displayName: Run Integration Tests
+    type: boolean
+    default: true
+    
+  - name: pipelineTemplateRef
+    displayName: Pipeline Template Ref
+    type: string
+    default: refs/heads/refactor
+
+trigger:
+  branches:
+    include:
+    - develop
+    - master
+    - release/*
+
+pr:
+  branches:
+    include:
+    - develop
+    - master
+    - release/*
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: CluedIn-io/AzurePipelines.Templates
+      endpoint: 'CluedIn-io'
+      ref: ${{ parameters.pipelineTemplateRef }}
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  - name: testFolderPath
+    value: '$(Build.SourcesDirectory)/test'
+  - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
+    value: true
+  - name: DOTNET_CLI_TELEMETRY_OPTOUT
+    value: true
+  - name: buildConfiguration
+    value: Release
+
+steps:
+  # Configure NuGet
+  - task: NuGetAuthenticate@0
+    displayName: 'Authenticate with nuget'
+
+  - template: crawler.build.yml@templates
+    parameters:
+      githubReleaseInMaster: true
+      publicReleaseForMaster: true
+      executeIntegrationTests: ${{ parameters.runIngegrationTests }}
+      publishCodeCoverage: true
