@@ -14,7 +14,7 @@ namespace CluedIn.Connector.OneLake
         public OneLakeConstants() : base(Guid.Parse("36C1B087-97C0-4460-A813-6E4EA1D1BC9A"),
             providerName: "OneLake Connector",
             componentName: "OneLakeConnector",
-            icon: "Resources.onelake.png",
+            icon: "Resources.onelake.svg",
             domain: "https://azure.microsoft.com/en-us/services/data-lake-analytics/",
             about: "Supports publishing of data to OneLake.",
             authMethods: OneLakeAuthMethods,

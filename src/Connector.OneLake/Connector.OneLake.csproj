@@ -6,13 +6,13 @@
     <IsCluedInServerComponent>true</IsCluedInServerComponent>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Resources\onelake.png" />
+    <None Remove="Resources\onelake.svg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Files.DataLake" />
     <PackageReference Include="CluedIn.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\onelake.png" />
+    <EmbeddedResource Include="Resources\onelake.svg" />
   </ItemGroup>
 </Project>
