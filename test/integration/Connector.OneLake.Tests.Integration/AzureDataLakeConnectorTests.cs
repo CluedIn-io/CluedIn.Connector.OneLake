@@ -84,7 +84,7 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
             var connectorMock = new Mock<OneLakeConnector>(
                 new Mock<ILogger<OneLakeConnector>>().Object,
                 new OneLakeClient(),
-                oneDataLakeConstantsMock.Object
+                oneLakeConstantsMock.Object
             );
             connectorMock.Setup(x => x.GetAuthenticationDetails(context, providerDefinitionId))
                 .Returns(Task.FromResult(connectorConnectionMock.Object));
