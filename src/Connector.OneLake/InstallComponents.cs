@@ -10,7 +10,7 @@ namespace CluedIn.Connector.OneLake
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(Component.For<IOneLakeClient>().ImplementedBy<OneLakeClient>().OnlyNewServices());
-            container.Register(Component.For<OneLakeConstants>().ImplementedBy<OneLakeConstants>().LifestyleSingleton());
+            container.Register(Component.For<IOneLakeConstants>().ImplementedBy<OneLakeConstants>().LifestyleSingleton());
         }
     }
 }
