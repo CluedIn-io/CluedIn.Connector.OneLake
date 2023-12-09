@@ -1,4 +1,3 @@
-using CluedIn.Connector.OneLake;
 using Newtonsoft.Json;
 using Xunit;
 

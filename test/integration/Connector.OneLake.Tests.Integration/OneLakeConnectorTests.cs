@@ -14,7 +14,6 @@ using CluedIn.Core.Data.Vocabularies;
 using CluedIn.Core.Streams.Models;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
