@@ -179,21 +179,21 @@ namespace CluedIn.Connector.OneLake.Connector
         public override Task<IEnumerable<IConnectorContainer>> GetContainers(ExecutionContext executionContext,
             Guid providerDefinitionId)
         {
-            _logger.LogInformation($"AzureDataLakeConnector.GetContainers: entry");
+            _logger.LogInformation($"OneLakeConnector.GetContainers: entry");
 
             throw new NotImplementedException(nameof(GetContainers));
         }
 
         public override async Task EmptyContainer(ExecutionContext executionContext, IReadOnlyStreamModel streamModel)
         {
-            _logger.LogInformation($"AzureDataLakeConnector.EmptyContainer: entry");
+            _logger.LogInformation($"OneLakeConnector.EmptyContainer: entry");
 
             throw new NotImplementedException(nameof(EmptyContainer));
         }
 
         public override async Task RenameContainer(ExecutionContext executionContext, IReadOnlyStreamModel streamModel, string oldContainerName)
         {
-            _logger.LogInformation($"AzureDataLakeConnector.RenameContainer: entry");
+            _logger.LogInformation($"OneLakeConnector.RenameContainer: entry");
 
             throw new NotImplementedException(nameof(RenameContainer));
         }
@@ -216,7 +216,7 @@ namespace CluedIn.Connector.OneLake.Connector
 
         public override async Task RemoveContainer(ExecutionContext executionContext, IReadOnlyStreamModel streamModel)
         {
-            _logger.LogInformation($"AzureDataLakeConnector.RemoveContainer: entry");
+            _logger.LogInformation($"OneLakeConnector.RemoveContainer: entry");
 
             throw new NotImplementedException(nameof(RemoveContainer));
         }

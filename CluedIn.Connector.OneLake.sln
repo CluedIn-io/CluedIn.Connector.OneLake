@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake", "src\Connector.AzureDataLake\Connector.OneLake.csproj", "{98AD320B-8415-4605-98A0-3F479F05CA95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake", "src\Connector.OneLake\Connector.OneLake.csproj", "{98AD320B-8415-4605-98A0-3F479F05CA95}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{9919A6B5-BBA9-4A88-9084-E6C099025F41}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,18 +36,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{56F1F857
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5256D9B9-8A1D-480D-A8F0-1A69AFA59B31}"
 	ProjectSection(SolutionItems) = preProject
-		src\Connector.AzureDataLake\Directory.Build.props = src\Connector.AzureDataLake\Directory.Build.props
+		src\Connector.OneLake\Directory.Build.props = src\Connector.OneLake\Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CCFA12D5-D843-46A6-B7AC-AC90C14EEE14}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{9A48CD57-CDE1-454C-AE55-8ABD15908E81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake.Tests.Integration", "test\integration\Connector.AzureDataLake.Tests.Integration\Connector.OneLake.Tests.Integration.csproj", "{22BA9D9A-8613-435D-A066-253B14E4EC44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake.Tests.Integration", "test\integration\Connector.OneLake.Tests.Integration\Connector.OneLake.Tests.Integration.csproj", "{22BA9D9A-8613-435D-A066-253B14E4EC44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{F5373611-431E-459B-B775-5A31DDEC5B21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake.Tests.Unit", "test\unit\Connector.AzureDataLake.Tests.Unit\Connector.OneLake.Tests.Unit.csproj", "{B713D902-FAD8-4B5E-AD24-C3E5AC5C4059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connector.OneLake.Tests.Unit", "test\unit\Connector.OneLake.Tests.Unit\Connector.OneLake.Tests.Unit.csproj", "{B713D902-FAD8-4B5E-AD24-C3E5AC5C4059}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

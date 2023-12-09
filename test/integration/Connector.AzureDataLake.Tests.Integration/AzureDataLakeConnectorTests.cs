@@ -58,11 +58,11 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
 
             var context = new ExecutionContext(applicationContext, organization, logger);
 
-            var azureDataLakeConstantsMock = new Mock<IOneLakeConstants>();
-            azureDataLakeConstantsMock.Setup(x => x.CacheRecordsThresholdKeyName).Returns("abc");
-            azureDataLakeConstantsMock.Setup(x => x.CacheRecordsThresholdDefaultValue).Returns(50);
-            azureDataLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
-            azureDataLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
+            var oneLakeConstantsMock = new Mock<IOneLakeConstants>();
+            oneLakeConstantsMock.Setup(x => x.CacheRecordsThresholdKeyName).Returns("abc");
+            oneLakeConstantsMock.Setup(x => x.CacheRecordsThresholdDefaultValue).Returns(50);
+            oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
+            oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
 
             var accountName = Environment.GetEnvironmentVariable("ADL2_ACCOUNTNAME");
             Assert.NotNull(accountName);
@@ -84,7 +84,7 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
             var connectorMock = new Mock<OneLakeConnector>(
                 new Mock<ILogger<OneLakeConnector>>().Object,
                 new OneLakeClient(),
-                azureDataLakeConstantsMock.Object
+                oneDataLakeConstantsMock.Object
             );
             connectorMock.Setup(x => x.GetAuthenticationDetails(context, providerDefinitionId))
                 .Returns(Task.FromResult(connectorConnectionMock.Object));
@@ -339,11 +339,11 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
 
             var context = new ExecutionContext(applicationContext, organization, logger);
 
-            var azureDataLakeConstantsMock = new Mock<IOneLakeConstants>();
-            azureDataLakeConstantsMock.Setup(x => x.CacheRecordsThresholdKeyName).Returns("abc");
-            azureDataLakeConstantsMock.Setup(x => x.CacheRecordsThresholdDefaultValue).Returns(50);
-            azureDataLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
-            azureDataLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
+            var oneLakeConstantsMock = new Mock<IOneLakeConstants>();
+            oneLakeConstantsMock.Setup(x => x.CacheRecordsThresholdKeyName).Returns("abc");
+            oneLakeConstantsMock.Setup(x => x.CacheRecordsThresholdDefaultValue).Returns(50);
+            oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
+            oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
 
             var accountName = Environment.GetEnvironmentVariable("ADL2_ACCOUNTNAME");
             Assert.NotNull(accountName);
@@ -365,7 +365,7 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
             var connectorMock = new Mock<OneLakeConnector>(
                 new Mock<ILogger<OneLakeConnector>>().Object,
                 new OneLakeClient(),
-                azureDataLakeConstantsMock.Object
+                oneLakeConstantsMock.Object
             );
             connectorMock.Setup(x => x.GetAuthenticationDetails(context, providerDefinitionId))
                 .Returns(Task.FromResult(connectorConnectionMock.Object));
