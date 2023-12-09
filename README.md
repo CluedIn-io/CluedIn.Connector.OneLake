@@ -1,2 +1,2 @@
-# CluedIn.Connector.AzureDataLake
+# CluedIn.Connector.OneLake
 
