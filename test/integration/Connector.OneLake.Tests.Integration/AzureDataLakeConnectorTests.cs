@@ -64,9 +64,9 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
             oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
             oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
 
-            var accountName = Environment.GetEnvironmentVariable("ADL2_ACCOUNTNAME");
+            var accountName = Environment.GetEnvironmentVariable("ONELAKE_ACCOUNTNAME");
             Assert.NotNull(accountName);
-            var accountKey = Environment.GetEnvironmentVariable("ADL2_ACCOUNTKEY");
+            var accountKey = Environment.GetEnvironmentVariable("ONELAKE_ACCOUNTKEY");
             Assert.NotNull(accountKey);
 
             var fileSystemName = $"xunit-fs-{DateTime.Now.Ticks}";
@@ -345,9 +345,9 @@ namespace CluedIn.Connector.OneLake.Tests.Integration
             oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalKeyName).Returns("abc");
             oneLakeConstantsMock.Setup(x => x.CacheSyncIntervalDefaultValue).Returns(2000);
 
-            var accountName = Environment.GetEnvironmentVariable("ADL2_ACCOUNTNAME");
+            var accountName = Environment.GetEnvironmentVariable("ONELAKE_ACCOUNTNAME");
             Assert.NotNull(accountName);
-            var accountKey = Environment.GetEnvironmentVariable("ADL2_ACCOUNTKEY");
+            var accountKey = Environment.GetEnvironmentVariable("ONELAKE_ACCOUNTKEY");
             Assert.NotNull(accountKey);
 
             var fileSystemName = $"xunit-fs-{DateTime.Now.Ticks}";
