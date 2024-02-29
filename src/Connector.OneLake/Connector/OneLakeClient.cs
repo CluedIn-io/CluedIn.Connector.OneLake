@@ -56,7 +56,7 @@ namespace CluedIn.Connector.OneLake.Connector
         private DataLakeServiceClient GetDataLakeServiceClient(OneLakeConnectorJobData configuration)
         {
             return new DataLakeServiceClient(
-                new Uri($"https://{configuration.AccountName}.dfs.core.windows.net"),
+                new Uri($"https://onelake.dfs.fabric.microsoft.com"),
                 new StorageSharedKeyCredential(configuration.AccountName, configuration.AccountKey));
         }
 
