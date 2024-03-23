@@ -1,4 +1,5 @@
-﻿using Azure.Storage;
+﻿using Azure.Identity;
+using Azure.Storage;
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
 using System;
@@ -12,10 +13,12 @@ namespace CluedIn.Connector.OneLake.Connector
         public async Task<DataLakeDirectoryClient> EnsureDataLakeDirectoryExist(OneLakeConnectorJobData configuration)
         {
             var dataLakeFileSystemClient = await EnsureDataLakeFileSystemClientAsync(configuration);
-            var directoryClient = dataLakeFileSystemClient.GetDirectoryClient(configuration.DirectoryName);
+            string uploadFolder = configuration.ItemName + "." + configuration.ItemType + "/" + configuration.ItemFolder + "/"; //"jlalakehouse.Lakehouse/Files/"
+
+            var directoryClient = dataLakeFileSystemClient.GetDirectoryClient(uploadFolder);
             if (!await directoryClient.ExistsAsync())
             {
-                directoryClient = await dataLakeFileSystemClient.CreateDirectoryAsync(configuration.DirectoryName);
+                directoryClient = await dataLakeFileSystemClient.CreateDirectoryAsync(uploadFolder);
             }
 
             return directoryClient;
@@ -55,19 +58,31 @@ namespace CluedIn.Connector.OneLake.Connector
 
         private DataLakeServiceClient GetDataLakeServiceClient(OneLakeConnectorJobData configuration)
         {
-            return new DataLakeServiceClient(
-                new Uri($"https://onelake.dfs.fabric.microsoft.com"),
-                new StorageSharedKeyCredential(configuration.AccountName, configuration.AccountKey));
+            {
+
+                string accountName = "onelake";
+
+                ClientSecretCredential sharedKeyCredential =
+        new ClientSecretCredential(configuration.TenantId, configuration.ClientId, configuration.ClientSecret);
+
+                string dfsUri = $"https://{accountName}.dfs.fabric.microsoft.com";
+
+                DataLakeServiceClient dataLakeServiceClient = new DataLakeServiceClient(
+                    new Uri(dfsUri),
+                    sharedKeyCredential);
+
+                return dataLakeServiceClient;
+            }
         }
 
         private async Task<DataLakeFileSystemClient> EnsureDataLakeFileSystemClientAsync(
             OneLakeConnectorJobData configuration)
         {
-            var dataLakeServiceClient = GetDataLakeServiceClient(configuration);
-            var dataLakeFileSystemClient = dataLakeServiceClient.GetFileSystemClient(configuration.FileSystemName);
+             var dataLakeServiceClient = GetDataLakeServiceClient(configuration);
+            var dataLakeFileSystemClient = dataLakeServiceClient.GetFileSystemClient(configuration.WorkspaceName);
             if (!await dataLakeFileSystemClient.ExistsAsync())
             {
-                dataLakeFileSystemClient = await dataLakeServiceClient.CreateFileSystemAsync(configuration.FileSystemName);
+                dataLakeFileSystemClient = await dataLakeServiceClient.CreateFileSystemAsync(configuration.WorkspaceName);
             }
 
             return dataLakeFileSystemClient;

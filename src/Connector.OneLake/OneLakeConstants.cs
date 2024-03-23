@@ -6,10 +6,13 @@ namespace CluedIn.Connector.OneLake
 {
     public class OneLakeConstants : ConfigurationConstantsBase, IOneLakeConstants
     {
-        public const string AccountName = nameof(AccountName);
-        public const string AccountKey = nameof(AccountKey);
-        public const string FileSystemName = nameof(FileSystemName);
-        public const string DirectoryName = nameof(DirectoryName);
+        public const string WorkspaceName = nameof(WorkspaceName);
+        public const string ItemName = nameof(ItemName);
+        public const string ItemType = nameof(ItemType);
+        public const string ItemFolder = nameof(ItemFolder);
+        public const string ClientId = nameof(ClientId);
+        public const string ClientSecret = nameof(ClientSecret);
+        public const string TenantId = nameof(TenantId);
 
         public OneLakeConstants() : base(Guid.Parse("36C1B087-97C0-4460-A813-6E4EA1D1BC9A"),
             providerName: "OneLake Connector",
@@ -49,29 +52,53 @@ namespace CluedIn.Connector.OneLake
             {
                 new Control
                 {
-                    name = AccountName,
-                    displayName = AccountName,
+                    name = WorkspaceName,
+                    displayName = WorkspaceName,
                     type = "input",
                     isRequired = true
                 },
                 new Control
                 {
-                    name = AccountKey,
-                    displayName = AccountKey,
+                    name = ItemName,
+                    displayName = ItemName,
+                    type = "input",
+                    isRequired = true
+                },
+                new Control
+                {
+                    name = ItemType,
+                    displayName = ItemType,
+                    type = "input",
+                    isRequired = true
+                },
+                new Control
+                {
+                    name = ItemFolder,
+                    displayName = ItemFolder,
+                    type = "input",
+                    isRequired = true
+                }
+                ,
+                new Control
+                {
+                    name = ClientId,
+                    displayName = ClientId,
+                    type = "input",
+                    isRequired = true
+                }
+                ,
+                new Control
+                {
+                    name = ClientSecret,
+                    displayName = ClientSecret,
                     type = "password",
                     isRequired = true
-                },
+                }
+                ,
                 new Control
                 {
-                    name = FileSystemName,
-                    displayName = FileSystemName,
-                    type = "input",
-                    isRequired = true
-                },
-                new Control
-                {
-                    name = DirectoryName,
-                    displayName = DirectoryName,
+                    name = TenantId,
+                    displayName = TenantId,
                     type = "input",
                     isRequired = true
                 }

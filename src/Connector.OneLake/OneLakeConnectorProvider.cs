@@ -14,9 +14,13 @@ namespace CluedIn.Connector.OneLake
 
         protected override IEnumerable<string> ProviderNameParts => new[]
         {
-           OneLakeConstants.AccountName,
-           OneLakeConstants.FileSystemName,
-           OneLakeConstants.DirectoryName
+           OneLakeConstants.WorkspaceName,
+           OneLakeConstants.ItemFolder,
+           OneLakeConstants.ItemType,
+           OneLakeConstants.ItemName,
+           OneLakeConstants.ClientId,
+           OneLakeConstants.ClientSecret,
+           OneLakeConstants.TenantId
         };
     }
 }
